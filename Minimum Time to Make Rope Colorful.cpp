@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Problem link : https://leetcode.com/problems/minimum-time-to-make-rope-colorful/
+// Problem Link : https://leetcode.com/problems/minimum-time-to-make-rope-colorful/
 
 class Solution
 {
