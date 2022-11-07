@@ -21,11 +21,6 @@ public:
 
         reverse(intStore.begin(), intStore.end());
 
-        for (auto i : intStore)
-        {
-            cout << i << " ";
-        }
-
         for (int i = 0; i < intStore.size(); i++)
         {
             if (intStore[i] == 6)
@@ -33,11 +28,6 @@ public:
                 intStore[i] = 9;
                 break;
             }
-        }
-        cout << endl;
-        for (auto i : intStore)
-        {
-            cout << i << " ";
         }
 
         int i = intStore.size() - 1;
