@@ -30,3 +30,28 @@ public:
         return true;
     }
 };
+
+// OR
+
+class Solution
+{
+public:
+    bool uniqueOccurrences(vector<int> &arr)
+    {
+        unordered_map<int, int> ump;
+        set<int> st;
+
+        for (auto it : arr)
+        {
+            ump[it]++;
+        }
+
+        for (auto i : ump)
+        {
+            st.insert(i.second);
+        }
+
+        // If size of map and set are same it means that frequency is unique
+        return ump.size() == st.size();
+    }
+};
