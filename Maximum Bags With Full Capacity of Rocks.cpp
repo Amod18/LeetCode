@@ -3,34 +3,43 @@ using namespace std;
 
 // Problem link : https://leetcode.com/problems/maximum-bags-with-full-capacity-of-rocks/description/
 
+/*
+Approach :
+    1) Find the difference between the capacity and the rocks already in it.
+    2) Sort the difference array
+    3) Then check if the difference is zero then the max capacity has been reached and that
+        will be added to our ans and if not then we will check that can the difference be zero
+        or not with the available rocks or not.
+*/
+
 class Solution
 {
 public:
     int maximumBags(vector<int> &capacity, vector<int> &rocks, int additionalRocks)
     {
-        vector<int> diff;
         int ans = 0;
 
         for (int i = 0; i < capacity.size(); i++)
         {
             int dif = capacity[i] - rocks[i];
-            diff.emplace_back(dif);
+            capacity[i] = dif;
         }
 
-        sort(diff.begin(), diff.end());
+        sort(capacity.begin(), capacity.end());
 
-        for (int i = 0; i < diff.size(); i++)
+        for (int i = 0; i < capacity.size(); i++)
         {
-            if (diff[i] == 0)
+            if (capacity[i] == 0)
             {
+                // if zero == max capacity already reached
                 ans++;
             }
             else
             {
-                if (diff[i] - additionalRocks <= 0)
+                if (capacity[i] - additionalRocks <= 0)
                 {
                     ans++;
-                    additionalRocks -= diff[i];
+                    additionalRocks -= capacity[i];
                 }
                 else
                 {
